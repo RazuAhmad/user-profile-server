@@ -38,7 +38,7 @@ async function run() {
 
     // Read or Find/Query Method.::::
 
-    app.get('https://user-profile-server-gamma.vercel.app/users',async(req,res)=>{
+    app.get('/users',async(req,res)=>{
         const query={};
         const cursor=totalUser.find(query);
         const users=await cursor.toArray();
@@ -47,7 +47,7 @@ async function run() {
 
     // Read or Find/Query method in case of sector collection...
 
-    app.get('https://user-profile-server-gamma.vercel.app/userSector', async(req,res)=>{
+    app.get('/userSector', async(req,res)=>{
         const query={};
         const cursor=sectorCollection.find(query);
         const users=await cursor.toArray();
@@ -56,7 +56,7 @@ async function run() {
 
 
     // Create method done here::::Post method..
-        app.post('https://user-profile-server-gamma.vercel.app/users', async(req,res)=>{
+        app.post('/users', async(req,res)=>{
             const user=req.body;
             
             const result=await totalUser.insertOne(user);
@@ -65,7 +65,7 @@ async function run() {
         })
 
     // Update method done here...
-    app.get('https://user-profile-server-gamma.vercel.app/users/:id',async(req,res)=>{
+    app.get('/users/:id',async(req,res)=>{
         const id=req.params.id;
         
 
@@ -75,7 +75,7 @@ async function run() {
     })
 
     // Put method for updating data....
-    app.put('https://user-profile-server-gamma.vercel.app/users/:id', async(req,res)=>{
+    app.put('/users/:id', async(req,res)=>{
         const id=req.params.id;
         const updatedUser=req.body;
         const filter={ _id: new ObjectId(id) };
@@ -114,7 +114,7 @@ run().catch(err=>console.log(err));
 
 
 
-app.get('https://user-profile-server-gamma.vercel.app',(req,res)=>{
+app.get('/',(req,res)=>{
     res.send("Hellow from node mongo crud server. Sing hey ho, sing hey ho. This is something so profound.")
 });
 
