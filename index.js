@@ -83,7 +83,7 @@ async function run() {
         const updateDoc={
             $set:{
                 name: updatedUser.name,
-                sector: updatedUser.sector[0].sector,
+                sector: updatedUser.sector,
                 checkbox: updatedUser.checkbox
             }
         }
