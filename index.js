@@ -33,9 +33,9 @@ async function run() {
     try {
         await client.connect();
 
-        const totalUser=client.db('userProfileDB').collection('userProfileCollection', 'sectorsCollection');
+        const totalUser=client.db('userProfileDB').collection('userProfileCollection');
 
-        // const sectorCollection=client.db('userProfileDB').collection('sectorsCollection');
+        const sectorCollection=client.db('userProfileDB').collection('sectorsCollection');
 
     // Read or Find/Query Method.::::
 
@@ -72,7 +72,8 @@ async function run() {
 
         const query={ _id: new ObjectId(id) };
         const user=await totalUser.findOne(query);
-        res.send(user)
+        res.send(user);
+        console.log(user)
     })
 
     // Put method for updating data....
