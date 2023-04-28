@@ -17,6 +17,9 @@ app.use(express.json());
 
 
 
+
+
+
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0.va5ejui.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -33,9 +36,9 @@ async function run() {
     try {
         await client.connect();
 
-        const totalUser=client.db('userProfileDB').collection('userProfileCollection');
+        const totalUser=client.db('userProfileDB').collection('userProfileCollection', 'sectorsCollection');
 
-        const sectorCollection=client.db('userProfileDB').collection('sectorsCollection');
+        // const sectorCollection=client.db('userProfileDB').collection('sectorsCollection');
 
     // Read or Find/Query Method.::::
 
